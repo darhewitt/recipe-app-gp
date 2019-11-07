@@ -1,13 +1,31 @@
-    <body>
+{% extends 'base.html'%}
+{% block content %}
         {% for recipe in recipes %}
-            {{recipe.recipe_name}}
-            {{recipe.ingredients}}
-            {{recipe.preparation_time}}
-            {{recipe.cooking_time}}
-            {{recipe.method}}
-            {{recipe.serving}}
-            {{recipe.tips}}
-            {{recipe.username}}
+        {{recipe.recipe_name}}
+        {{recipe.ingredients}}
+        {{recipe.preparation_time}}
+        {{recipe.cooking_time}}
+        {{recipe.method}}
+        {{recipe.serving}}
+        {{recipe.tips}}
+        {{recipe.username}}
         {% endfor %}
-    </body>
-</html>
+<div class="col s12 m4 l4">
+  <h3>Collapsible </h3>
+        <ul class="collapsible">
+              <li class="active">
+                <div class="collapsible-header"><i class="material-icons">perm_identity</i>About</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">language</i>Language</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">contacts</i>Contact</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+              </li>
+              
+            </ul>
+          </div>
+{% endblock %}
