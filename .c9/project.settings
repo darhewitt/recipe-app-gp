@@ -2,8 +2,16 @@
     "build": {
         "@saveall": true
     },
+    "format": {
+        "jsbeautify": {
+            "@formatOnSave": true
+        }
+    },
     "instance": {
         "@automaticShutdown": "30"
+    },
+    "javascript": {
+        "@use_jsbeautify": true
     },
     "language": {
         "tern_defs": {

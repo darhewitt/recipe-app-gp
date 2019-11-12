@@ -1,31 +1,147 @@
-{% extends 'base.html'%}
-{% block content %}
-        {% for recipe in recipes %}
-        {{recipe.recipe_name}}
-        {{recipe.ingredients}}
-        {{recipe.preparation_time}}
-        {{recipe.cooking_time}}
-        {{recipe.method}}
-        {{recipe.serving}}
-        {{recipe.tips}}
-        {{recipe.username}}
-        {% endfor %}
-<div class="col s12 m4 l4">
-  <h3>Collapsible </h3>
-        <ul class="collapsible">
-              <li class="active">
-                <div class="collapsible-header"><i class="material-icons">perm_identity</i>About</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">language</i>Language</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">contacts</i>Contact</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-              </li>
-              
-            </ul>
+{% extends 'base.html'%} {% block content %} {% for recipe in recipes %}
+
+
+<div id="index-banner" class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container valign">
+      <br><br>
+      <h1 class="header center grey-text text-darken-2">{{recipe.recipe_name}}</h1>
+      <div class="row center">
+        <h5 class="header col s12 light grey-text text-darken-2">To establish a unified experience across its platforms</h5>
+        <p class="post-meta"><i style="color: #616161" class="fa fa-clock-o"></i> 7 days ago by <a href="#" style="color: #616161">Author name</a></p>
+      </div>
+      <div class="row center">
+        <a href="#startPosts" class="btn-floating btn-large waves-effect waves-light grey darken-2 head-link"><i class="fa fa-angle-double-down"></i></a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="https://shannonmiller.com/wp-content/uploads/2012/08/iStock_000016616129XSmall.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container" id="startPosts">
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col s12 m10 offset-m1 l9 offset-l1">
+
+      <p>Google’s Material Design language focuses on simplicity in design and use of bold colors and Typography. With Material Design guidelines, Google aims to establish a unified experience across its platforms and wide variety of devices.
+      </p>
+
+      <p>View the detailed information and documentation regarding Material Design at its <a style="color:#26a69a;" href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank"><strong>official website
+					</strong></a> which provides guidelines on design and interaction fundamentals such as animation, color, typography, layout principles and structure, components and essential patterns.
+      </p>
+
+      <p>Material design enables app developers to switch android app themes to the new Material Theme along with new widgets and animations. Check this <a style="color:#26a69a;" href="http://developer.android.com/design/material/index.html" target="_blank">
+					link</a> for details.
+      </p>
+      <p>Have a look at the <strong>Material Design </strong>Introductory video below which illustrates how Google’s own android apps adapt with this new design guideline. Also take a look at <a style="color:#26a69a;" href="http://www.google.com/design/spec/style/color.html#color-ui-color-palette"
+          target="_blank">
+				<strong>UI Color Palette</strong></a> and
+        <a style="color:#26a69a;" href="http://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-content" target="_blank">
+				<strong>Components</strong></a></p>
+
+
+
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer grey darken-2">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 l4 m10">
+        <h5 class="white-text">Follow "BlogName"</h5>
+        <p class="white-text">Get every new post delivered to your inbox.</p>
+        <form>
+
+          <div class="input-field">
+            <i class="mdi-communication-email prefix"></i>
+            <input id="icon_prefix" type="email" class="validate">
+            <label for="icon_prefix">Email</label>
           </div>
-{% endblock %}
+
+        </form>
+
+        <a class="waves-effect waves-light btn">Sign Up
+                    <i class="fa fa-sign-in right"></i></a>
+      </div>
+      <!--col-->
+
+
+      <div id="categories" class="col l3 offset-l1 s12 m8">
+        <h5 class="white-text">Categories</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Category1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Category2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Category3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Category4</a></li>
+        </ul>
+      </div>
+      <!--col-->
+
+
+
+      <div class="col l3 s12 m8">
+        <h5 class="white-text">Archives</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">March 2015</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">April 2015</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">May 2015</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">June 2015</a></li>
+        </ul>
+      </div>
+      <!--col-->
+
+    </div>
+    <!--row-->
+
+    <div class="row">
+      <div class="col s12 l3 offset-l5">
+
+
+        <a href="#"><i style="font-size: 38px;" class="fa fa-facebook-square"></i></a> &nbsp;&nbsp;&nbsp;
+        <a href="#"><i style="font-size: 38px;" class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;&nbsp;
+        <a href="#"><i style="font-size: 38px;" class="fa fa-google-plus-square"></i></a>
+      </div>
+
+    </div>
+    <!--row-->
+  </div>
+  <!--conatiner-->
+  <div class="footer-copyright">
+    <div class="container">
+      <p>Copyright © Your website name</p>
+      <br>
+    </div>
+  </div>
+</footer>
+
+
+<!--  Scripts-->
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.materialboxed').materialbox();
+    $('.parallax').parallax();
+    $('.button-collapse').sideNav();
+  });
+</script>
+<script>
+  $('.head-link').click(function(e) {
+    e.preventDefault();
+
+    var goto = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $(goto).offset().top
+    }, 800);
+  });
+</script>
+
+{% endfor %} {% endblock %}
