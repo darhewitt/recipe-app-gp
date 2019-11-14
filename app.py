@@ -17,7 +17,20 @@ def get_recipes():
     
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('addrecipe.html')
+    return render_template('addrecipe.html',
+    cuisine=mongo.db.cuisine.find())
+    
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipes'))
+    
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_cuisine = mongo.db.cuisine.find()
+    return render_template('editrecipe.html', recipe=the_recipe, cuisine=all_cuisine)
 
 
 if __name__ == '__main__':

@@ -1,11 +1,11 @@
-{% extends 'base.html'%} {% block content %} {% for recipe in recipes %}
+{% extends 'base.html'%} {% block content %}
 
 
 <div id="index-banner" class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
     <div class="container valign">
       <br><br>
-      <h1 class="header center grey-text text-darken-2">{{recipe.recipe_name}}</h1>
+      <h1 class="header center grey-text text-darken-2"></h1>
       <div class="row center">
         <h5 class="header col s12 light grey-text text-darken-2">To establish a unified experience across its platforms</h5>
         <p class="post-meta"><i style="color: #616161" class="fa fa-clock-o"></i> 7 days ago by <a href="#" style="color: #616161">Author name</a></p>
@@ -26,24 +26,57 @@
   <br>
   <br>
   <div class="row">
+    {% for recipe in recipes %}
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header">
+          <div class="col s6">
+            <i class="material-icons">expand_more</i>{{recipe.recipe_name}}
+          </div>
+          <div class="col s6">
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right edit-button btn">Edit</a>
+          </div>
+        </div>
+        <div class="collapsible-body">
+          <div class="row">
+            <div class="input-field col s4">
+              <p>Preparation Time - {{recipe.preparation_time}}
+              </p>
+            </div>
+            <div class="input-field col s4">
+              <p>Cooking Time - {{recipe.cooking_time}}
+              </p>
+            </div>
+            <div class="input-field col s4">
+              <p>Serving - {{recipe.serving}}
+              </p>
+            </div>
+            <div class="input-field col s12">
+              <p>Description - {{recipe.recipe_description}}
+              </p>
+            </div>
+            <div class="input-field col s12">
+              <p>Ingredients -{{recipe.ingredients}}
+              </p>
+            </div>
+            <div class="input-field col s12">
+              <p>Method -{{recipe.method}}
+              </p>
+            </div>
+            <div class="input-field col s12">
+              <p>Tips -{{recipe.tips}}
+              </p>
+            </div>
+            <div class="input-field col s12">
+              <p>Author -{{recipe.username}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    {% endfor %}
     <div class="col s12 m10 offset-m1 l9 offset-l1">
-
-      <p>Google’s Material Design language focuses on simplicity in design and use of bold colors and Typography. With Material Design guidelines, Google aims to establish a unified experience across its platforms and wide variety of devices.
-      </p>
-
-      <p>View the detailed information and documentation regarding Material Design at its <a style="color:#26a69a;" href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank"><strong>official website
-					</strong></a> which provides guidelines on design and interaction fundamentals such as animation, color, typography, layout principles and structure, components and essential patterns.
-      </p>
-
-      <p>Material design enables app developers to switch android app themes to the new Material Theme along with new widgets and animations. Check this <a style="color:#26a69a;" href="http://developer.android.com/design/material/index.html" target="_blank">
-					link</a> for details.
-      </p>
-      <p>Have a look at the <strong>Material Design </strong>Introductory video below which illustrates how Google’s own android apps adapt with this new design guideline. Also take a look at <a style="color:#26a69a;" href="http://www.google.com/design/spec/style/color.html#color-ui-color-palette"
-          target="_blank">
-				<strong>UI Color Palette</strong></a> and
-        <a style="color:#26a69a;" href="http://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-content" target="_blank">
-				<strong>Components</strong></a></p>
-
 
 
     </div>
@@ -144,4 +177,4 @@
   });
 </script>
 
-{% endfor %} {% endblock %}
+{% endblock %}
