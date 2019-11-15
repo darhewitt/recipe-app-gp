@@ -4,56 +4,65 @@
 <br><br>
 
 <div class="row">
-    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">insert_comment</i>
-                <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
                 <label for="icon_prefix">Recipe Name</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">timer</i>
-                <input id="preparation_time" name="preparation_time" type="text" class="validate">
+                <input id="preparation_time" name="preparation_time" type="text" class="validate" value="{{recipe.preparation_time}}">
                 <label for="icon_telephone">Preparation Time</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">language</i>
-                <select>
+                <select id="cuisine" name="cuisine_name">
                       <option value="" disabled selected>Choose Cuisine</option>
-                      {% for cuis in cuisine %}
-                      <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
+                      {% for cuis in cuisines %}
+                      {% if cuis.cuisine_name == recipe.cuisine_name %}
+                      <option value="{{cuis.cuisine_name}}" selected >{{cuis.cuisine_name}}</option>
+                      {% else %}
+                      <option value="{{cuis.cuisine_name}}">{{cuis.cuisine_name}}</option>
+                      {% endif %}
                       {% endfor %}
                     </select>
                 <label>Cuisine</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">timer</i>
-                <input id="cooking_time" name="cooking_time" type="text" class="validate">
+                <input id="cooking_time" name="cooking_time" type="text" class="validate" value="{{recipe.cooking_time}}">
                 <label for="icon_telephone">Cooking Time</label>
             </div>
             <div class="input-field col s12">
+                <i class="material-icons prefix">format_list_bulleted</i>
+                <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{recipe.recipe_description}}">
+                <label for="icon_telephone">Description</label>
+            </div>
+            <div class="input-field col s12">
                 <i class="material-icons prefix">local_grocery_store</i>
-                <input id="ingredients" name="ingredients" type="text" class="validate">
+                <input id="ingredients" name="ingredients" type="text" class="validate" value="{{recipe.ingredients}}">
                 <label for="icon_prefix">Ingredients</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">mode_edit</i>
-                <textarea id="method" name="method" class="materialize-textarea"></textarea>
-                <label for="icon_prefix2">Method</label>
+                <input id="method" name="method" type="text" class="validate" value="{{recipe.method}}">
+                <label for="icon_telephone">Method</label>
             </div>
             <div class="input-field col s9">
                 <i class="material-icons prefix">format_list_bulleted</i>
-                <input id="tips" type="text" name="tips" class="validate">
+                <input id="tips" type="text" name="tips" class="validate" value="{{recipe.tips}}">
                 <label for="icon_telephone">Tips</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">restaurant</i>
-                <input id="serving" name="serving" type="text" class="validate">
+                <input id="serving" name="serving" type="text" class="validate" value="{{recipe.serving}}">
                 <label for="icon_prefix">Serving</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">person_outline</i>
-                <input id="username" type="text" name="username" class="validate">
+                <input id="username" type="text" name="username" class="validate" value="{{recipe.username}}">
                 <label for="icon_telephone">Username</label>
                 <div class="row">
                 </div>

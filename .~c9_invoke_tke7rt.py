@@ -54,7 +54,7 @@ def update_recipe(recipe_id):
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
-                           categories   =mongo.db.cuisines.find())
+                           cuisines=mongo.db.cuisines.find())
                            
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
@@ -70,21 +70,6 @@ def update_category(category_id):
         {'cuisine_name': request.form.get('cuisine_name')})
     return redirect(url_for('get_categories'))
 
-@app.route('/delete_category/<category_id>')
-def delete_category(category_id):
-    mongo.db.cuisines.remove({'_id': ObjectId(category_id)})
-    return redirect(url_for('get_categories'))
-    
-@app.route('/insert_category', methods=['POST'])
-def insert_category():
-    category_doc = {'cuisine_name': request.form.get('cuisine_name')}
-    mongo.db.cuisines.insert_one(category_doc)
-    return redirect(url_for('get_categories'))
-
-
-@app.route('/add_category')
-def add_category():
-    return render_template('addcategory.html')
 
 
 
