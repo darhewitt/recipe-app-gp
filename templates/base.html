@@ -15,6 +15,7 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 
                 <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+                <li><a href="{{url_for('get_all_recipes')}}">All Recipes </a></li>
                 <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                 <li><a href="{{url_for('get_categories')}} ">Categories</a></li>
 
@@ -22,6 +23,7 @@
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+                <li><a href="{{url_for('get_all_recipes')}}">All Recipes </a></li>
                 <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                 <li><a href="{{url_for('get_categories')}} ">Categories</a></li>
 
@@ -44,5 +46,25 @@
         });
     </script>
 </body>
+
+<footer class="page-footer amber darken-4">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Contact Us</h5>
+                <p class="grey-text text-lighten-4">info@recipeapp.com</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright RecipeApp
+        </div>
+    </div>
+</footer>
 
 </html>

@@ -13,8 +13,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find(),
-    cuisines=mongo.db.cuisines.find())
+    return render_template("recipes.html", recipes=mongo.db.recipes.find())
     
 @app.route('/add_recipe')
 def add_recipe():
@@ -42,6 +41,7 @@ def update_recipe(recipe_id):
         'cuisine_name':request.form.get('cuisine_name'),
         'ingredients': request.form.get('ingredients'),
         'preparation_time': request.form.get('preparation_time'),
+        'image_link': request.form.get('image_link'),
         'cooking_time':request.form.get('cooking_time'),
         'method':request.form.get('method'),
         'serving':request.form.get('serving'),
@@ -85,8 +85,18 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
+    
+@app.route('/')
+@app.route('/get_all_recipes')
+def get_all_recipes():
+    return render_template("allrecipes.html", recipes=mongo.db.recipes.find(),
+    cuisines=mongo.db.cuisines.find())
 
-
+@app.route('/read_recipe/<recipe_id>')
+def read_recipe(recipe_id):
+    return render_template('readrecipe.html',
+                           recipe=mongo.db.recipes.find_one(
+                           {'_id': ObjectId(recipe_id)}))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

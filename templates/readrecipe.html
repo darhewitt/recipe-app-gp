@@ -1,0 +1,57 @@
+{% extends 'base.html'%} {% block content %}
+
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header">
+            <div class="col s6">
+                <i class="material-icons">expand_more</i>{{recipe.recipe_name}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <p>Preparation Time - {{recipe.preparation_time}}
+                </p>
+            </div>
+            <div class="input-field col s4">
+                <p>Cooking Time - {{recipe.cooking_time}}
+                </p>
+            </div>
+            <div class="input-field col s4">
+                <p>Serving - {{recipe.serving}}
+                </p>
+            </div>
+            <div class="input-field col s12">
+                <p>Cuisine - {{recipe.cuisine_name}}
+                </p>
+            </div>
+            <div class="input-field col s12">
+                <p>Description - {{recipe.recipe_description}}
+                </p>
+            </div>
+            <div class="input-field col s12">
+                <p>Ingredients -{{recipe.ingredients}}
+                </p>
+            </div>
+            <div class="input-field col s12">
+                <p>Method -{{recipe.method}}
+                </p>
+            </div>
+            <div class="input-field col s12">
+                <p>Tips -{{recipe.tips}}
+                </p>
+            </div>
+            <div class="input-field col s12">
+                <p>Author -{{recipe.username}}
+                </p>
+                <div class="col 6">
+                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right edit-button btn">Edit</a>
+                    <br><br>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</form>
+</div>
+{% endblock %}

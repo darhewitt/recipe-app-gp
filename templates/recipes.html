@@ -2,124 +2,47 @@
 
 
 <div id="index-banner" class="parallax-container valign-wrapper">
-  <div class="section center no-pad-bot">
-    <div class="container center valign">
+  <div class="section no-pad-bot">
+    <div class="container valign">
       <br><br>
-      <h1 class="header center grey-text text-darken-2"></h1>
+      <h1 class="header center grey-text text-darken-2">RecipePal</h1>
       <div class="row center">
-        <h5 class="header col s12 light grey-text text-darken-2">Recipes that the whole family will enjoy..</h5>
-        <p class="post-meta"><i style="color: #616161" class="fa fa-clock-o"></i> 7 days ago by <a href="#" style="color: #616161">Author name</a></p>
-      </div>
-      <div class="row center">
-        <a href="#startPosts" class="btn-floating btn-large waves-effect waves-light grey darken-2 head-link"><i class="fa fa-angle-double-down"></i></a>
+        <h5 class="header col s12 light grey-text text-darken-2">Find what you're hungry for.</h5>
       </div>
       <br><br>
 
     </div>
   </div>
-  <div class="parallax"><img src="{{url_for('static', filename='images/recipe_image.jpg')}}" alt="Unsplashed background img 2"></div>
+  <div class="parallax"><img src="{{url_for('static', filename='images/cookbook.jpg')}}" alt="Unsplashed background img 2"></div>
 </div>
-
+<div class="container center">
+  <h2>Latest Posts</h2>
+</div>
 <div class="container" id="startPosts">
   <br>
-  <br>
-  <br>
-  <br>
-  <div class="row">
-    {% for recipe in recipes|reverse %}
-    <ul class="collapsible">
-      <li>
-        <div class="collapsible-header">
-          <div class="col s6">
-            <i class="material-icons">expand_more</i>{{recipe.recipe_name}}
-          </div>
-          <div class="col s6">
-            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right edit-button btn">Edit</a>
-          </div>
+  <br> {% for recipe in recipes %}
+  <div class="col s12 m7">
+    <h2 class="header">{{recipe.recipe_name}}</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <a href="{{url_for( 'read_recipe', recipe_id=recipe._id)}}" class="collection-item black-text"><img src="{{recipe.image_link}}"></a>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{recipe.recipe_description}}</p>
         </div>
-        <div class="collapsible-body">
-          <div class="row">
-            <div class="input-field col s4">
-              <p>Preparation Time - {{recipe.preparation_time}}
-              </p>
-            </div>
-            <div class="input-field col s4">
-              <p>Cooking Time - {{recipe.cooking_time}}
-              </p>
-            </div>
-            <div class="input-field col s4">
-              <p>Serving - {{recipe.serving}}
-              </p>
-            </div>
-            <div class="input-field col s12">
-              <p>Cuisine - {{recipe.cuisine_name}}
-              </p>
-            </div>
-            <div class="input-field col s12">
-              <p>Description - {{recipe.recipe_description}}
-              </p>
-            </div>
-            <div class="input-field col s12">
-              <p>Ingredients -{{recipe.ingredients}}
-              </p>
-            </div>
-            <div class="input-field col s12">
-              <p>Method -{{recipe.method}}
-              </p>
-            </div>
-            <div class="input-field col s12">
-              <p>Tips -{{recipe.tips}}
-              </p>
-            </div>
-            <div class="input-field col s12">
-              <p>Author -{{recipe.username}}
-              </p>
-            </div>
-          </div>
+        <div class="card-action">
+          <a href="{{url_for( 'read_recipe', recipe_id=recipe._id)}}" class="collection-item black-text">View Recipe</a>
         </div>
-      </li>
-    </ul>
-    {% endfor %}
-    <div class="col s12 m10 offset-m1 l9 offset-l1">
+      </div>
     </div>
+  </div>
+  <br> {% endfor %}
+
+  <div class="col s12 m10 offset-m1 l9 offset-l1 ">
   </div>
 </div>
-
-<footer class="page-footer grey darken-2">
-  <div class="container">4
-    <div class="row">
-      <div class="col s12 l4 m10">
-        <h5 class="white-text">Follow "BlogName"</h5>
-        <p class="white-text">Get every new post delivered to your inbox.</p>
-        <form>
-
-          <div class="input-field">
-            <i class="mdi-communication-email prefix"></i>
-            <input id="icon_prefix" type="email" class="validate">
-            <label for="icon_prefix">Email</label>
-          </div>
-
-        </form>
-
-        <a class="waves-effect waves-light btn">Sign Up
-                    <i class="fa fa-sign-in right"></i></a>
-      </div>
-      <!--col-->
-
-
-    </div>
-    <!--row-->
-  </div>
-  <!--conatiner-->
-  <div class="footer-copyright">
-    <div class="container">
-      <p>Copyright © Your website name</p>
-      <br>
-    </div>
-  </div>
-
-
-</footer>
+</div>
 
 
 <!--  Scripts-->
