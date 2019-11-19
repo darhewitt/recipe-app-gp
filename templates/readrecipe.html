@@ -2,50 +2,50 @@
 
 <ul class="collapsible">
     <li>
-        <div class="collapsible-header">
+        <div>
             <div class="col s6">
-                <i class="material-icons">expand_more</i>{{recipe.recipe_name}}
+                <h3><strong>{{recipe.recipe_name}}</strong></h3>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s4">
-                <p>Preparation Time - {{recipe.preparation_time}}
+                <p><strong>Preparation Time</strong> - {{recipe.preparation_time}}
                 </p>
             </div>
             <div class="input-field col s4">
-                <p>Cooking Time - {{recipe.cooking_time}}
+                <p><strong>Cooking Time</strong> - {{recipe.cooking_time}}
                 </p>
             </div>
             <div class="input-field col s4">
-                <p>Serving - {{recipe.serving}}
+                <p><strong>Serving</strong> - {{recipe.serving}}
                 </p>
             </div>
             <div class="input-field col s12">
-                <p>Cuisine - {{recipe.cuisine_name}}
+                <p><strong>Cuisine</strong> - {{recipe.cuisine_name}}
                 </p>
             </div>
             <div class="input-field col s12">
-                <p>Description - {{recipe.recipe_description}}
+                <p><strong>Description</strong> - {{recipe.recipe_description}}
                 </p>
             </div>
             <div class="input-field col s12">
-                <p>Ingredients -{{recipe.ingredients}}
+                <p><strong>Ingredients</strong> -{{recipe.ingredients}}
                 </p>
             </div>
             <div class="input-field col s12">
-                <p>Method -{{recipe.method}}
+                <p><strong>Method</strong> -{{recipe.method}}
                 </p>
             </div>
             <div class="input-field col s12">
-                <p>Tips -{{recipe.tips}}
+                <p><strong>Tips</strong> -{{recipe.tips}}
                 </p>
             </div>
             <div class="input-field col s12">
-                <p>Author -{{recipe.username}}
+                <p><strong>Author</strong> -{{recipe.username}}
                 </p>
-                <div class="col 6">
-                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right edit-button btn">Edit</a>
-                    <br><br>
+                <div class="col 3 center">
+                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light amber center btn">Edit</a>
+
                     <br><br>
                 </div>
             </div>
